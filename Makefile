@@ -51,5 +51,5 @@ SRPMS/%-$(VERSION)-1.el10.src.rpm: SPECS/%-$(VERSION).spec $(TARBALL)
 # Build binary RPMs - uses src.rpm in RPMS as marker.
 RPMS/%-$(VERSION)-1.el10.src.rpm: SRPMS/%-$(VERSION)-1.el10.src.rpm
 	@echo ">>> Building $* with mock..."
-	@mock -r $(MOCK_CONFIG) --rebuild $
+	@mock -r $(MOCK_CONFIG) --rebuild SRPMS/$*-$(VERSION)-1.el10.src.rpm
 	@cp /var/lib/mock/$(MOCK_CONFIG)/result/*.rpm RPMS/
