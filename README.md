@@ -27,8 +27,12 @@ Browse packages: https://el.m68k.io/10/
 To download, build and sign all packages, just run:
 
 ```bash
-make all
+git clone https://gitlab.com/alex-moch/el10-zfs.git ~/rpmbuild
+cd ~/rpmbuild/
+make
 ```
+
+The RPMs can be found in `~/rpmbuild/RPMS`.
 
 ## Source
 
