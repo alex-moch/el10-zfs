@@ -20,7 +20,7 @@ The GPG keys will be imported automatically from the repository configuration.
 
 ## Repository
 
-Browse packages: https://el.m68k.io/10/
+Browse packages: https://el-backup.m68k.io/10/
 
 ## Building
 
