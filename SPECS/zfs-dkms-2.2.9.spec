@@ -12,7 +12,7 @@
 
 Name:           %{module}-dkms
 
-Version:        2.4.0_rc3
+Version:        2.2.9
 Release:        1%{?dist}
 Summary:        Kernel module(s) (dkms)
 
@@ -165,3 +165,4 @@ else
 fi
 
 exit 0
+
