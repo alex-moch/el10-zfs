@@ -90,7 +90,7 @@
 %define __python_sitelib          %(%{__python} -Esc "from distutils.sysconfig import get_python_lib; print(get_python_lib())" 2>/dev/null || %{__python} -Esc "import sysconfig; print(sysconfig.get_path('purelib'))")
 
 Name:           zfs
-Version:        2.4.0
+Version:        2.2.10
 Release:        1%{?dist}
 Summary:        Commands to control the kernel modules and libraries
 
@@ -418,7 +418,7 @@ make install DESTDIR=%{?buildroot}
 find %{?buildroot}%{_libdir} -name '*.la' -exec rm -f {} \;
 %if 0%{!?__brp_mangle_shebangs:1}
 find %{?buildroot}%{_bindir} \
-    \( -name zarcsummary -or -name zarcstat -or -name dbufstat \
+    \( -name arc_summary -or -name arcstat -or -name dbufstat \
     -or -name zilstat \) \
     -exec %{__sed} -i 's|^#!.*|#!%{__python}|' {} \;
 find %{?buildroot}%{_datadir} \
@@ -494,8 +494,8 @@ systemctl --system daemon-reload >/dev/null || true
 %{_sbindir}/zgenhostid
 %{_bindir}/zvol_wait
 # Optional Python 3 scripts
-%{_bindir}/zarcsummary
-%{_bindir}/zarcstat
+%{_bindir}/arc_summary
+%{_bindir}/arcstat
 %{_bindir}/dbufstat
 %{_bindir}/zilstat
 # Man pages
@@ -529,7 +529,6 @@ systemctl --system daemon-reload >/dev/null || true
 %config(noreplace) %{_sysconfdir}/%{name}/zed.d/*
 %config(noreplace) %{_sysconfdir}/%{name}/zpool.d/*
 %config(noreplace) %{_sysconfdir}/%{name}/vdev_id.conf.*.example
-%attr(440, root, root) %config(noreplace) %{_sysconfdir}/sudoers.d/*
 
 %config(noreplace) %{_bashcompletiondir}/zfs
 %config(noreplace) %{_bashcompletiondir}/zpool
